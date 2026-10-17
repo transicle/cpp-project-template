@@ -34,12 +34,15 @@ build:
 	
 	@printf "Re-compiling project...                            	\033[1;33m[\033[39m2/3\033[33m]\033[0m\n"
 	
-	cmake --build $(BUILD_DIR) > /tmp/project_build.log 2>&1 \
+	@cmake --build $(BUILD_DIR) > /tmp/project_build.log 2>&1 \
 	    || { printf "\n\033[1;31mProgram build failed!\033[0m\n"; \
-	         echo ; echo "————————————————————————— Error Logs —————————————————————————" ; echo; \
+	         echo; \
+	         echo "————————————————————————— Error Logs —————————————————————————"; \
+	         echo; \
 	         cat /tmp/project_build.log; \
-	         echo ; echo "———————————————————————————————————————————————————————————————"; \
-			 echo \
+	         echo; \
+	         echo "———————————————————————————————————————————————————————————————"; \
+	         echo; \
 	         exit 1; }
 	
 	@printf "Finishing project build...                         	\033[1;33m[\033[39m3/3\033[33m]\033[0m\n"
